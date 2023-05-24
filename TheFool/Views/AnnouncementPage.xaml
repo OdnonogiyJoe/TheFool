@@ -1,0 +1,66 @@
+﻿<Page x:Class="TheFool.Views.AnnouncementPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TheFool.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AnnouncementPage"  Background="#fdfdfd">
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Margin="0">
+            <Label Content="Поиск:"/>
+            <TextBox Width="200" Grid.Row="1" Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="0" HorizontalAlignment="Center" Width="200">
+            <Label Content="Объявления" HorizontalAlignment="Center" FontSize="20"/>
+        </StackPanel>
+
+        <ListBox Grid.Row="1" ItemsSource="{Binding Announcements}" Name="list" SelectedItem="{Binding SelectedAnnouncement}" HorizontalContentAlignment="Stretch" SelectionMode="Extended">
+            <ListBox.ItemTemplate>
+                <DataTemplate >
+                    <Grid>
+                        <StackPanel Grid.Column="1" Orientation="Vertical" HorizontalAlignment="Left">
+
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="Id:"/>
+                                <Label Content="{Binding Id}"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="Пользователь:"/>
+                                <Label Content="{Binding UserId}"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="Город:"/>
+                                <Label Content="{Binding CityId}"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="Описание:"/>
+                                <Label Content="{Binding Description}"/>
+                            </StackPanel>
+
+                            <StackPanel>
+                                <Label Content="____________________________________________________________________________________________________________________________________________________________________________________________________________________"/>
+                            </StackPanel>
+
+                        </StackPanel>
+                    </Grid>
+
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+    </Grid>
+</Page>

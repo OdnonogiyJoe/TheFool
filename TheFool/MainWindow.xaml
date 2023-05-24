@@ -1,0 +1,51 @@
+﻿<Window x:Class="TheFool.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TheFool"
+        mc:Ignorable="d"
+        Title="Homeless" Height="600" Width="1200" WindowStartupLocation="CenterScreen" MinHeight="600" MinWidth="1200" Background="#fdfdfd" >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Background="#C76864">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Orientation="Horizontal" Grid.Column="0">
+              
+                <Button
+                    Style="{StaticResource RoundButtonTemplate}"
+                    Width="100" Height="50" Content="Домашняя" Margin="5" FontSize="14" Foreground="Black" Background="#fdfdfd"
+                    Command="{Binding HomePage}"
+                    />
+
+                <Button
+                    Style="{StaticResource RoundButtonTemplate}"
+                    Width="100" Height="50"  Content="Профиль" Margin="5" FontSize="14" Foreground="Black" Background="#fdfdfd"
+                    Command="{Binding ProfilePage}"
+                    />
+
+                <Button
+                    Style="{StaticResource RoundButtonTemplate}"
+                    Width="100" Height="50" Content="Объявления" Margin="5" FontSize="14" Foreground="Black" Background="#fdfdfd"
+                    Command="{Binding AnnouncementPage}"
+                    />
+                
+            </StackPanel>
+
+            
+        </Grid>
+
+        <Frame Grid.Row="1" NavigationUIVisibility="Hidden"
+                        Grid.Column="1" Margin="10"
+                        Content="{Binding CurrentPage}"/>
+
+    </Grid>
+</Window>
